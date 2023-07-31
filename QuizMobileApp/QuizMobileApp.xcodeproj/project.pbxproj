@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C60EE0072A7854F100A97747 /* RemoteQuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60EE0062A7854F100A97747 /* RemoteQuestionLoader.swift */; };
 		C62877E82A77A82A002F507E /* QuizMobileApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62877DF2A77A829002F507E /* QuizMobileApp.framework */; };
 		C62877F82A77BE4C002F507E /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62877F72A77BE4C002F507E /* QuestionItem.swift */; };
 		C62877FA2A77BF90002F507E /* QuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62877F92A77BF90002F507E /* QuestionLoader.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C60EE0062A7854F100A97747 /* RemoteQuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteQuestionLoader.swift; sourceTree = "<group>"; };
 		C62877DF2A77A829002F507E /* QuizMobileApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuizMobileApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62877E72A77A82A002F507E /* QuizMobileAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizMobileAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62877F72A77BE4C002F507E /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
@@ -50,6 +52,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C60EE0052A7854BE00A97747 /* Question API */ = {
+			isa = PBXGroup;
+			children = (
+				C60EE0062A7854F100A97747 /* RemoteQuestionLoader.swift */,
+			);
+			path = "Question API";
+			sourceTree = "<group>";
+		};
 		C62877D52A77A829002F507E = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +81,7 @@
 		C62877E12A77A829002F507E /* QuizMobileApp */ = {
 			isa = PBXGroup;
 			children = (
+				C60EE0052A7854BE00A97747 /* Question API */,
 				C62877FB2A77C0AE002F507E /* Quiz Feature */,
 			);
 			path = QuizMobileApp;
@@ -204,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C62877FA2A77BF90002F507E /* QuestionLoader.swift in Sources */,
+				C60EE0072A7854F100A97747 /* RemoteQuestionLoader.swift in Sources */,
 				C62877F82A77BE4C002F507E /* QuestionItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
