@@ -69,8 +69,7 @@
 		C62877E12A77A829002F507E /* QuizMobileApp */ = {
 			isa = PBXGroup;
 			children = (
-				C62877F72A77BE4C002F507E /* QuestionItem.swift */,
-				C62877F92A77BF90002F507E /* QuestionLoader.swift */,
+				C62877FB2A77C0AE002F507E /* Quiz Feature */,
 			);
 			path = QuizMobileApp;
 			sourceTree = "<group>";
@@ -80,6 +79,15 @@
 			children = (
 			);
 			path = QuizMobileAppTests;
+			sourceTree = "<group>";
+		};
+		C62877FB2A77C0AE002F507E /* Quiz Feature */ = {
+			isa = PBXGroup;
+			children = (
+				C62877F92A77BF90002F507E /* QuestionLoader.swift */,
+				C62877F72A77BE4C002F507E /* QuestionItem.swift */,
+			);
+			path = "Quiz Feature";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
