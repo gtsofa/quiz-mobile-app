@@ -10,6 +10,7 @@
 		C62877E82A77A82A002F507E /* QuizMobileApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62877DF2A77A829002F507E /* QuizMobileApp.framework */; };
 		C62877F82A77BE4C002F507E /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62877F72A77BE4C002F507E /* QuestionItem.swift */; };
 		C62877FA2A77BF90002F507E /* QuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62877F92A77BF90002F507E /* QuestionLoader.swift */; };
+		C62877FF2A77C30B002F507E /* RemoteQuestionLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62877FE2A77C30B002F507E /* RemoteQuestionLoaderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +28,7 @@
 		C62877E72A77A82A002F507E /* QuizMobileAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizMobileAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62877F72A77BE4C002F507E /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
 		C62877F92A77BF90002F507E /* QuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLoader.swift; sourceTree = "<group>"; };
+		C62877FE2A77C30B002F507E /* RemoteQuestionLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteQuestionLoaderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		C62877EB2A77A82A002F507E /* QuizMobileAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				C62877FE2A77C30B002F507E /* RemoteQuestionLoaderTests.swift */,
 			);
 			path = QuizMobileAppTests;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 					};
 					C62877E62A77A82A002F507E = {
 						CreatedOnToolsVersion = 14.3;
+						LastSwiftMigration = 1430;
 					};
 				};
 			};
@@ -208,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C62877FF2A77C30B002F507E /* RemoteQuestionLoaderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +413,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -415,6 +421,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = gtsofa.com.QuizMobileAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -423,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
