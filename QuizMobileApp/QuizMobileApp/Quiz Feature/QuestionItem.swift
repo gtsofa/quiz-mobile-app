@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QuestionItem {
+public struct QuestionItem: Equatable {
     let question: String
     let answer: [String]
 }
