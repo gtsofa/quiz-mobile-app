@@ -24,7 +24,7 @@ public class RemoteQuestionLoader {
         case connectivitiy
     }
     
-    public func load(completion: @escaping (Error) -> Void = { _ in } ) {
+    public func load(completion: @escaping (Error) -> Void ) {
         client.get(from: url) { error in
             completion(.connectivitiy)
         }
