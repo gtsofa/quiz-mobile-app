@@ -41,12 +41,10 @@ final class RemoteQuestionLoaderTests: XCTestCase {
         
         client.error = NSError(domain: "test", code: 0)
         
-        var capturedError: RemoteQuestionLoader.Error?
-        sut.load { error in
-            capturedError = error
-        }
+        var capturedErrors = [RemoteQuestionLoader.Error]()
+        sut.load { capturedErrors.append($0)}
         
-        XCTAssertEqual(capturedError, .connectivitiy)
+        XCTAssertEqual(capturedErrors, [.connectivitiy])
     }
     
     // MARK: - Helpers
