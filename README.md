@@ -1,5 +1,5 @@
 # quiz-mobile-app
-The first release of the app will be very limited in scope but will serve as the foundation for future releases. It's expected that the player will be able to:
+This is a Quiz app.  It's expected that the player will be able to:
 
 - Insert words and have them counted as a hit as soon as the player types the last letter of each word.
 - After a hit, the input box will be cleared and the focus will remain on the input box.
@@ -8,3 +8,68 @@ The first release of the app will be very limited in scope but will serve as the
     - If the player doesn't complete within 5 min, an alert will tell him his score.
  
 - There will be a button to start the timer.
+
+## PayLoad Contract
+
+```
+GET *url* 
+
+200 RESPONSE
+
+{
+  "question": "What are all the java keywords?",
+  "answer": [
+    "abstract",
+    "assert",
+    "boolean",
+    "break",
+    "byte",
+    "case",
+    "catch",
+    "char",
+    "class",
+    "const",
+    "continue",
+    "default",
+    "do",
+    "double",
+    "else",
+    "enum",
+    "extends",
+    "final",
+    "finally",
+    "float",
+    "for",
+    "goto",
+    "if",
+    "implements",
+    "import",
+    "instanceof",
+    "int",
+    "interface",
+    "long",
+    "native",
+    "new",
+    "package",
+    "private",
+    "protected",
+    "public",
+    "return",
+    "short",
+    "static",
+    "strictfp",
+    "super",
+    "switch",
+    "synchronized",
+    "this",
+    "throw",
+    "throws",
+    "transient",
+    "try",
+    "void",
+    "volatile",
+    "while"
+  ]
+}
+
+```
