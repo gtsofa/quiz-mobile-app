@@ -78,10 +78,13 @@ final class RemoteQuestionLoaderTests: XCTestCase {
     
     func test_load_deliversItemOn200HTTPResponseWithJSONList() {
         let (sut, client) = makeSUT()
-        let item1 = makeItem(question: "a question", answer: ["answer", "answer1"])
+        let answer = ["answer1", "answer2"]
+        let json = ["question": "a question",
+                    "answer": answer] as [String : Any]
+        let item1 = makeItem(question: "a question", answer: answer)
         
         expect(sut, toCompleteWith: .success([item1.model]), when: {
-            let data = try! JSONSerialization.data(withJSONObject: item1.json)
+            let data = try! JSONSerialization.data(withJSONObject: json)
             client.complete(withStatusCode: 200, data: data)
         })
     }
