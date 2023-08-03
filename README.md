@@ -1,4 +1,4 @@
-# quiz-mobile-app
+# Quiz Mobile App
 This is a Quiz app.  It's expected that the player will be able to:
 
 - Insert words and have them counted as a hit as soon as the player types the last letter of each word.
