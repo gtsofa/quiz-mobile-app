@@ -51,7 +51,8 @@ final class RemoteQuestionLoaderTests: XCTestCase {
         
         samples.enumerated().forEach { index, code in
             expect(sut, toCompleteWith: .failure(.invalidData), when: {
-                client.complete(withStatusCode: code, at: index)
+                let json = Data(_: "{}".utf8)
+                client.complete(withStatusCode: code, data: json, at: index)
             })
         }
     }
@@ -77,7 +78,7 @@ final class RemoteQuestionLoaderTests: XCTestCase {
     
     func test_load_deliversItemOn200HTTPResponseWithJSONList() {
         let (sut, client) = makeSUT()
-        let item1 = makeItem(question: "a question", answer: ["answer"])
+        let item1 = makeItem(question: "a question", answer: ["answer", "answer1"])
         
         expect(sut, toCompleteWith: .success([item1.model]), when: {
             let data = try! JSONSerialization.data(withJSONObject: item1.json)
@@ -127,7 +128,7 @@ final class RemoteQuestionLoaderTests: XCTestCase {
             messages[index].completion(.failure(error))
         }
         
-        func complete(withStatusCode code: Int, data: Data = Data(), at index: Int = 0) {
+        func complete(withStatusCode code: Int, data: Data, at index: Int = 0) {
             let response = HTTPURLResponse(
                 url: requestedURLs[index],
                 statusCode: code,
