@@ -40,8 +40,8 @@ public class RemoteQuestionLoader {
         client.get(from: url) { result in
             switch result {
             case let .success(data, _):
-                if let _ = try? JSONSerialization.jsonObject(with: data) {
-                    completion(.success([]))
+                if let question = try? JSONDecoder().decode(QuestionItem.self, from: data) {
+                    completion(.success([question]))
                 } else {
                     completion(.failure(.invalidData))
                 }
@@ -52,5 +52,8 @@ public class RemoteQuestionLoader {
             
         }
     }
+}
+
+private struct Root: Decodable {
 }
 

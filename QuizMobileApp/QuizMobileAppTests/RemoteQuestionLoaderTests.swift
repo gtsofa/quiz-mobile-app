@@ -69,10 +69,24 @@ final class RemoteQuestionLoaderTests: XCTestCase {
         let (sut, client) = makeSUT()
         
         expect(sut, toCompleteWith: .success([]), when: {
-            let emptyJSONList = Data(_: "{\"question\":\"question one\", \"answer\": []}".utf8)
+            let emptyJSONList = Data(_: "{}".utf8)
             client.complete(withStatusCode: 200, data: emptyJSONList)
         })
+
+    }
+    
+    func test_load_deliversItemOn200HTTPResponseWithJSONList() {
+        let (sut, client) = makeSUT()
+        let item1 = QuestionItem(question: "a question", answer: ["answer"])
+        let item1json = [
+            "question": item1.question,
+            "answer": item1.answer
+        ] as [String : Any]
         
+        expect(sut, toCompleteWith: .success([item1]), when: {
+            let data = try! JSONSerialization.data(withJSONObject: item1json)
+            client.complete(withStatusCode: 200, data: data)
+        })
     }
     
     // MARK: - Helpers
@@ -81,6 +95,16 @@ final class RemoteQuestionLoaderTests: XCTestCase {
         let client = HTTPClientSpy()
         let sut = RemoteQuestionLoader(url: url, client: client)
         return (sut, client)
+    }
+    
+    func makeItem(question: String, answer: [String]) -> (model: QuestionItem, json: [String: Any]) {
+        let item = QuestionItem(question: question, answer: answer)
+        let itemJSON = makeItemJSON(question: question, answer: answer)
+        return (item, itemJSON)
+    }
+    
+    func makeItemJSON(question: String, answer: [String]) -> [String: Any] {
+        return ["question": question, "answer": answer]
     }
     
     private func expect(_ sut: RemoteQuestionLoader, toCompleteWith result: RemoteQuestionLoader.Result, when action: () -> Void, file: StaticString = #filePath, line: UInt = #line) {
