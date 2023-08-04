@@ -21,11 +21,7 @@ public class RemoteQuestionLoader {
         case invalidData
     }
     
-    public enum Result: Equatable {
-        
-        case success([QuestionItem])
-        case failure(Error)
-    }
+   public typealias Result = LoadQuestionResult<Error>
     
     public func load(completion: @escaping (Result) -> Void ) {
         client.get(from: url) { [weak self] result in
