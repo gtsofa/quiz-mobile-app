@@ -21,7 +21,7 @@ public class RemoteQuestionLoader: QuestionLoader {
         case invalidData
     }
     
-   public typealias Result = LoadQuestionResult<Error>
+   public typealias Result = LoadQuestionResult
     
     public func load(completion: @escaping (Result) -> Void ) {
         client.get(from: url) { [weak self] result in
@@ -32,7 +32,7 @@ public class RemoteQuestionLoader: QuestionLoader {
                 completion(QuestionItemMapper.map(data, from: response))
                 
             case .failure:
-                completion(.failure(.connectivitiy))
+                completion(.failure(Error.connectivitiy))
             }
             
         }

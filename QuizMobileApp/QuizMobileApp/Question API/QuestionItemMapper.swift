@@ -13,7 +13,7 @@ internal final class QuestionItemMapper {
     internal static func map(_ data: Data, from response: HTTPURLResponse)  -> RemoteQuestionLoader.Result {
         guard response.statusCode == OK_200,
                 let item = try? JSONDecoder().decode(QuestionItem.self, from: data) else {
-            return .failure(.invalidData)
+            return .failure(RemoteQuestionLoader.Error.invalidData)
         }
         
         return .success([item])

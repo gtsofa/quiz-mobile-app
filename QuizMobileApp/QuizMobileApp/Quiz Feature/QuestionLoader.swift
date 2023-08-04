@@ -7,13 +7,11 @@
 
 import Foundation
 
-public enum LoadQuestionResult<Error: Swift.Error> {
+public enum LoadQuestionResult {
     case success([QuestionItem])
     case failure(Error)
 }
 
 protocol QuestionLoader {
-    associatedtype Error: Swift.Error
-    
-    func load(completion: @escaping (LoadQuestionResult<Error>) -> Void)
+    func load(completion: @escaping (LoadQuestionResult) -> Void)
 }
