@@ -40,7 +40,7 @@ public class RemoteQuestionLoader {
         client.get(from: url) { result in
             switch result {
             case let .success(data, response):
-                completion(RemoteQuestionLoader.map(data, response: response))
+                completion(RemoteQuestionLoader.map(data, from: response))
                 
             case .failure:
                 completion(.failure(.connectivitiy))
@@ -49,9 +49,9 @@ public class RemoteQuestionLoader {
         }
     }
     
-    private static func map(_ data: Data, response: HTTPURLResponse) -> Result {
+    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
         do {
-            let items = try QuestionItemMapper.map(data, response: response)
+            let items = try QuestionItemMapper.map(data, from: response)
             return .success(items)
             
         } catch {
@@ -63,7 +63,7 @@ public class RemoteQuestionLoader {
 private class QuestionItemMapper {
     static var OK_200: Int { return 200 }
     
-    static func map(_ data: Data, response: HTTPURLResponse) throws -> [QuestionItem] {
+    static func map(_ data: Data, from response: HTTPURLResponse) throws -> [QuestionItem] {
         guard response.statusCode == OK_200, let item = try? JSONDecoder().decode(QuestionItem.self, from: data) else {
             throw RemoteQuestionLoader.Error.invalidData
         }
