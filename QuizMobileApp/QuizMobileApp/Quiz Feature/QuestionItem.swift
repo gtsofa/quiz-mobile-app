@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct QuestionItem: Equatable {
+public struct QuestionItem: Equatable, Decodable {
     public let question: String
     public let answer: [String]
     
@@ -17,8 +17,5 @@ public struct QuestionItem: Equatable {
     }
 }
 
-extension QuestionItem: Decodable {
-    
-}
 
 

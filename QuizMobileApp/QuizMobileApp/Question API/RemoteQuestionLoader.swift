@@ -40,20 +40,36 @@ public class RemoteQuestionLoader {
         client.get(from: url) { result in
             switch result {
             case let .success(data, response):
-                if response.statusCode == 200, let question = try? JSONDecoder().decode(QuestionItem.self, from: data) {
-                    completion(.success([question]))
-                } else {
-                    completion(.failure(.invalidData))
-                }
-               
+                completion(RemoteQuestionLoader.map(data, response: response))
+                
             case .failure:
                 completion(.failure(.connectivitiy))
             }
             
         }
     }
+    
+    //extract mapping logic
+    private static func map(_ data: Data, response: HTTPURLResponse) -> Result {
+        do {
+            let items = try QuestionItemMapper.map(data, response: response)
+            return .success(items)
+            
+        } catch {
+            return .failure(error as! RemoteQuestionLoader.Error)
+        }
+    }
 }
 
-private struct Root: Decodable {
+private class QuestionItemMapper {
+    static func map(_ data: Data, response: HTTPURLResponse) throws -> [QuestionItem] {
+        guard response.statusCode == 200, let item = try? JSONDecoder().decode(QuestionItem.self, from: data) else {
+            throw RemoteQuestionLoader.Error.invalidData
+        }
+        
+        return [item]
+    }
 }
+
+
 
