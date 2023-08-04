@@ -49,7 +49,6 @@ public class RemoteQuestionLoader {
         }
     }
     
-    //extract mapping logic
     private static func map(_ data: Data, response: HTTPURLResponse) -> Result {
         do {
             let items = try QuestionItemMapper.map(data, response: response)
