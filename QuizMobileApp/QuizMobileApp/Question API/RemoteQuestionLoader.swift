@@ -51,17 +51,5 @@ public class RemoteQuestionLoader {
     }
 }
 
-private class QuestionItemMapper {
-    static var OK_200: Int { return 200 }
-    
-    static func map(_ data: Data, from response: HTTPURLResponse) throws -> [QuestionItem] {
-        guard response.statusCode == OK_200, let item = try? JSONDecoder().decode(QuestionItem.self, from: data) else {
-            throw RemoteQuestionLoader.Error.invalidData
-        }
-        
-        return [item]
-    }
-}
-
 
 
