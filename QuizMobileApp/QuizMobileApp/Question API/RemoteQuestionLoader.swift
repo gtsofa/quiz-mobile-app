@@ -31,22 +31,12 @@ public class RemoteQuestionLoader {
         client.get(from: url) { result in
             switch result {
             case let .success(data, response):
-                completion(RemoteQuestionLoader.map(data, from: response))
+                completion(QuestionItemMapper.map(data, from: response))
                 
             case .failure:
                 completion(.failure(.connectivitiy))
             }
             
-        }
-    }
-    
-    private static func map(_ data: Data, from response: HTTPURLResponse) -> Result {
-        do {
-            let items = try QuestionItemMapper.map(data, from: response)
-            return .success(items)
-            
-        } catch {
-            return .failure(error as! RemoteQuestionLoader.Error)
         }
     }
 }
