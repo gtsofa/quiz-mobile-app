@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class RemoteQuestionLoader {
+public class RemoteQuestionLoader: QuestionLoader {
     private let client: HTTPClient
     private let url: URL
     
