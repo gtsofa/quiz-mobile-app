@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum QuestionLoaderResult {
+enum LoadQuestionResult {
     case success([QuestionItem])
     case error(Error)
 }
 
 protocol QuestionLoader {
-    func load(completion: @escaping (QuestionLoaderResult) -> Void)
+    func load(completion: @escaping (LoadQuestionResult) -> Void)
 }
