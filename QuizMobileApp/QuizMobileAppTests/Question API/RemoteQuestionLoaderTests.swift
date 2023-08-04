@@ -39,7 +39,7 @@ final class RemoteQuestionLoaderTests: XCTestCase {
     func test_load_deliversErrorOnClientError() {
         let (sut, client) = makeSUT()
         
-        expect(sut, toCompleteWith: .failure(RemoteQuestionLoader.Error.connectivitiy), when: {
+        expect(sut, toCompleteWith: failure(.connectivitiy), when: {
             let clientError = NSError(domain: "test", code: 0)
             client.complete(with: clientError)
         })
@@ -50,7 +50,7 @@ final class RemoteQuestionLoaderTests: XCTestCase {
         let samples = [199, 201, 300, 400, 500]
         
         samples.enumerated().forEach { index, code in
-            expect(sut, toCompleteWith: .failure(RemoteQuestionLoader.Error.invalidData), when: {
+            expect(sut, toCompleteWith: failure(.invalidData), when: {
                 let json = Data(_: "{}".utf8)
                 client.complete(withStatusCode: code, data: json, at: index)
             })
@@ -60,7 +60,7 @@ final class RemoteQuestionLoaderTests: XCTestCase {
     func test_load_deliversErrorOn200HTTPResponseWithInvalidJSON() {
         let (sut, client) = makeSUT()
         
-        expect(sut, toCompleteWith: .failure(RemoteQuestionLoader.Error.invalidData), when: {
+        expect(sut, toCompleteWith: failure(.invalidData), when: {
             let invalidJSON = Data(_: "invalid json".utf8)
             client.complete(withStatusCode: 200, data: invalidJSON)
         })
@@ -69,7 +69,7 @@ final class RemoteQuestionLoaderTests: XCTestCase {
     func test_load_deliversNoItemOn200HTTPResponseWithEmptyJSONList() {
         let (sut, client) = makeSUT()
         
-        expect(sut, toCompleteWith: .failure(RemoteQuestionLoader.Error.invalidData), when: {
+        expect(sut, toCompleteWith: failure(.invalidData), when: {
             let emptyJSONList = Data(_: "{}".utf8)
             client.complete(withStatusCode: 200, data: emptyJSONList)
         })
@@ -114,6 +114,10 @@ final class RemoteQuestionLoaderTests: XCTestCase {
         trackForMemoryLeak(sut, file: file, line: line)
         trackForMemoryLeak(client, file: file, line: line)
         return (sut, client)
+    }
+    
+    private func failure(_ error: RemoteQuestionLoader.Error) -> RemoteQuestionLoader.Result {
+        return .failure(error)
     }
     
     private func trackForMemoryLeak(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
