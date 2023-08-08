@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "A18C608A-EF1D-4D5D-A273-68C0AD3CDCD0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : false
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:QuizMobileApp.xcodeproj",
+        "identifier" : "C62877E62A77A82A002F507E",
+        "name" : "QuizMobileAppTests"
+      }
+    }
+  ],
+  "version" : 1
+}

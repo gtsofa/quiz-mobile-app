@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		C60EE0062A7854F100A97747 /* RemoteQuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteQuestionLoader.swift; sourceTree = "<group>"; };
+		C61F91F72A82AAEF00287536 /* QuizMobileApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = QuizMobileApp.xctestplan; sourceTree = "<group>"; };
 		C62877DF2A77A829002F507E /* QuizMobileApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuizMobileApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62877E72A77A82A002F507E /* QuizMobileAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizMobileAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62877F72A77BE4C002F507E /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
@@ -76,6 +77,7 @@
 		C62877D52A77A829002F507E = {
 			isa = PBXGroup;
 			children = (
+				C61F91F72A82AAEF00287536 /* QuizMobileApp.xctestplan */,
 				C62877E12A77A829002F507E /* QuizMobileApp */,
 				C62877EB2A77A82A002F507E /* QuizMobileAppTests */,
 				C62877E02A77A829002F507E /* Products */,
