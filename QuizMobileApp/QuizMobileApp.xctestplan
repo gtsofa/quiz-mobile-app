@@ -9,7 +9,16 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:QuizMobileApp.xcodeproj",
+          "identifier" : "C62877DE2A77A829002F507E",
+          "name" : "QuizMobileApp"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
