@@ -8,26 +8,6 @@
 import XCTest
 import QuizMobileApp
 
-class URLSessionHTTPClient {
-    private let session: URLSession
-    
-    init(session: URLSession = .shared) {
-        self.session = session
-    }
-    
-    struct UnexpectedValuesRepresentation: Error {}
-    
-    func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void ) {
-        session.dataTask(with: url) { _,_,error in
-            if let error = error {
-                completion(.failure(error))
-            } else {
-                completion(.failure(UnexpectedValuesRepresentation() ))
-            }
-        }.resume()
-    }
-}
-
 final class URLSessionHTTPClientTests: XCTestCase {
     
     override class func setUp() {
