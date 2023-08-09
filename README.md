@@ -1,4 +1,7 @@
 # Quiz Mobile App
+
+[![.github/workflows/CI.yml](https://github.com/gtsofa/quiz-mobile-app/actions/workflows/CI.yml/badge.svg)](https://github.com/gtsofa/quiz-mobile-app/actions/workflows/CI.yml)
+
 This is a Quiz app.  It's expected that the player will be able to:
 
 - Insert words and have them counted as a hit as soon as the player types the last letter of each word.
