@@ -1,6 +1,6 @@
 # Quiz Mobile App
 
-[![CI_macOS](https://github.com/gtsofa/quiz-mobile-app/actions/workflows/CI.yml/badge.svg)](https://github.com/gtsofa/quiz-mobile-app/actions/workflows/CI.yml)
+[![Build Status](https://github.com/gtsofa/quiz-mobile-app/actions/workflows/CI.yml/badge.svg)](https://github.com/gtsofa/quiz-mobile-app/actions/workflows/CI.yml)
 
 This is a Quiz app.  It's expected that the player will be able to:
 
