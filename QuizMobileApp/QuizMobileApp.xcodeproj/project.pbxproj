@@ -49,6 +49,7 @@
 		C62877F72A77BE4C002F507E /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
 		C62877F92A77BF90002F507E /* QuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionLoader.swift; sourceTree = "<group>"; };
 		C62877FE2A77C30B002F507E /* RemoteQuestionLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteQuestionLoaderTests.swift; sourceTree = "<group>"; };
+		C641F2CF2A83BB8C001A3FBA /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI.xctestplan; sourceTree = "<group>"; };
 		C6B0D3482A81833A00961B47 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		C6B0D34A2A82491C00961B47 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		C6F89CB22A7D0628006C05CD /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
@@ -105,6 +106,7 @@
 		C62877D52A77A829002F507E = {
 			isa = PBXGroup;
 			children = (
+				C641F2CF2A83BB8C001A3FBA /* CI.xctestplan */,
 				C61F91F72A82AAEF00287536 /* QuizMobileApp.xctestplan */,
 				C62877E12A77A829002F507E /* QuizMobileApp */,
 				C62877EB2A77A82A002F507E /* QuizMobileAppTests */,

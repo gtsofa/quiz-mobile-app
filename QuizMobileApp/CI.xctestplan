@@ -1,0 +1,40 @@
+{
+  "configurations" : [
+    {
+      "id" : "5DA467C7-0F74-4427-8280-96BBBDB0BE16",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:QuizMobileApp.xcodeproj",
+          "identifier" : "C62877DE2A77A829002F507E",
+          "name" : "QuizMobileApp"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:QuizMobileApp.xcodeproj",
+        "identifier" : "C62877E62A77A82A002F507E",
+        "name" : "QuizMobileAppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:QuizMobileApp.xcodeproj",
+        "identifier" : "C619F0CC2A83B23A00179938",
+        "name" : "QuizMobileAppAPIEndToEndTests"
+      }
+    }
+  ],
+  "version" : 1
+}
