@@ -95,7 +95,7 @@ final class QuizMobileAppAPIEndToEndTests: XCTestCase {
     }
     
     private var quizTestServerURL: URL {
-        return URL(string: "https://raw.githubusercontent.com/mauriciomaniglia/quiz-mobile-app/master/quiz.api")!
+        return URL(string: "https://raw.githubusercontent.com/gtsofa/quiz-mobile-app/main/quiz.api")!
     }
     
     func trackForMemoryLeak(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
