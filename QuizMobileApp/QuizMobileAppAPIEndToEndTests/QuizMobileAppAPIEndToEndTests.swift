@@ -97,13 +97,7 @@ final class QuizMobileAppAPIEndToEndTests: XCTestCase {
     private var quizTestServerURL: URL {
         return URL(string: "https://raw.githubusercontent.com/gtsofa/quiz-mobile-app/main/quiz.api")!
     }
-    
-    func trackForMemoryLeak(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
-        }
-    }
-    
+
     private func answers(at index: Int) -> String? {
         return [
             "abstract",
