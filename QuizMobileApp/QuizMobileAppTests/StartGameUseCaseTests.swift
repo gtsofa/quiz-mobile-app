@@ -13,6 +13,10 @@ class QuizGameEngine {
     init(counter: StartGameUseCaseTests.CounterSpy) {
         self.counter = counter
     }
+    
+    func startGame() {
+        counter.start()
+    }
 }
 
 final class StartGameUseCaseTests: XCTestCase {
@@ -25,8 +29,21 @@ final class StartGameUseCaseTests: XCTestCase {
         XCTAssertEqual(counter.startCounterCallCount, 0)
     }
     
+    func test_startGame_startsTheCounter() {
+        let counter = CounterSpy()
+        let sut = QuizGameEngine(counter: counter)
+        
+        sut.startGame()
+        
+        XCTAssertEqual(counter.startCounterCallCount, 1)
+    }
+    
     class CounterSpy {
         var startCounterCallCount = 0
+        
+        func start() {
+            startCounterCallCount += 1
+        }
     }
 
 }
