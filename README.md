@@ -12,6 +12,51 @@ This is a Quiz app.  It's expected that the player will be able to:
  
 - There will be a button to start the timer.
 
+
+## Use Cases
+
+### Load Question From Remote Use Case
+
+#### Data:
+- URL
+
+#### Primary Course(Happy path):
+1. Execute "Load Question" command with above data.
+2. System downloads data from the URL.
+3. System validates downloaded data.
+4. System creates question from valid data.
+5. System delivers question and correct answers.
+
+#### Invalid data – error course (sad path):
+1. System delivers invalid data error.
+
+#### No connectivity - error course (sad path):
+1. System delivers connectivty error.
+
+### Start Game Use Case
+
+#### Primary course:
+1. Execute "Start" command
+2. System starts the counter.
+3. System enables the user to insert guesses.
+
+### Add User Guess Use Case
+
+#### Data:
+- String
+
+#### Primary course:
+1. Execute "Add guess" command with the above data.
+2. System validates the user guess
+3. System saves the user guess.
+
+### Finish Game Use Case
+
+#### Primary course:
+1. Execute "Validate user guesses" command with the above data.
+2. System verify the user guesses.
+3. System informs if the game is finished.
+
 ## PayLoad Contract
 
 ```
