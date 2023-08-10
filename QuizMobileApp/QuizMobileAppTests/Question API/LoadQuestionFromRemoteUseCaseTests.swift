@@ -1,5 +1,5 @@
 //
-//  RemoteQuestionLoaderTests.swift
+//  LoadQuestionFromRemoteUseCaseTests.swift
 //  QuizMobileAppTests
 //
 //  Created by Julius on 31/07/2023.
@@ -8,7 +8,7 @@
 import XCTest
 import QuizMobileApp
 
-final class RemoteQuestionLoaderTests: XCTestCase {
+final class LoadQuestionFromRemoteUseCaseTests: XCTestCase {
     func test_init_doesNotLoadDataFromURL() {
         let (_, client) = makeSUT()
         
