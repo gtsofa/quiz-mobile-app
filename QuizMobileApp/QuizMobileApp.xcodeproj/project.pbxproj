@@ -11,6 +11,7 @@
 		C619F0D02A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C619F0CF2A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.swift */; };
 		C619F0D12A83B23A00179938 /* QuizMobileApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62877DF2A77A829002F507E /* QuizMobileApp.framework */; };
 		C619F0D72A83B2C800179938 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B0D3482A81833A00961B47 /* XCTestCase+MemoryLeakTracking.swift */; };
+		C61FFFAC2A8535B30015FD33 /* StartGameUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61FFFAB2A8535B30015FD33 /* StartGameUseCaseTests.swift */; };
 		C62877E82A77A82A002F507E /* QuizMobileApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62877DF2A77A829002F507E /* QuizMobileApp.framework */; };
 		C62877F82A77BE4C002F507E /* QuestionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62877F72A77BE4C002F507E /* QuestionItem.swift */; };
 		C62877FA2A77BF90002F507E /* QuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C62877F92A77BF90002F507E /* QuestionLoader.swift */; };
@@ -44,6 +45,7 @@
 		C619F0CD2A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizMobileAppAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C619F0CF2A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMobileAppAPIEndToEndTests.swift; sourceTree = "<group>"; };
 		C61F91F72A82AAEF00287536 /* QuizMobileApp.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = QuizMobileApp.xctestplan; sourceTree = "<group>"; };
+		C61FFFAB2A8535B30015FD33 /* StartGameUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameUseCaseTests.swift; sourceTree = "<group>"; };
 		C62877DF2A77A829002F507E /* QuizMobileApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuizMobileApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62877E72A77A82A002F507E /* QuizMobileAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizMobileAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C62877F72A77BE4C002F507E /* QuestionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItem.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				C6F89CB62A7D255A006C05CD /* Question API */,
+				C61FFFAB2A8535B30015FD33 /* StartGameUseCaseTests.swift */,
 			);
 			path = QuizMobileAppTests;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 			files = (
 				C62877FF2A77C30B002F507E /* LoadQuestionFromRemoteUseCaseTests.swift in Sources */,
 				C6F89CB82A7E55DF006C05CD /* URLSessionHTTPClientTests.swift in Sources */,
+				C61FFFAC2A8535B30015FD33 /* StartGameUseCaseTests.swift in Sources */,
 				C6B0D3492A81833B00961B47 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
