@@ -19,7 +19,9 @@ final class StartGameUseCaseTests: XCTestCase {
 
     func test_init_doesNotRequestToStartCounter() {
         let counter = CounterSpy()
-        let sut = QuizGameEngine(counter: counter)
+        
+        _ = QuizGameEngine(counter: counter)
+        
         XCTAssertEqual(counter.startCounterCallCount, 0)
     }
     
