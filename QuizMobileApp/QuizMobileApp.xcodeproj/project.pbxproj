@@ -103,6 +103,14 @@
 			path = QuizMobileAppAPIEndToEndTests;
 			sourceTree = "<group>";
 		};
+		C61FFFAA2A84F0520015FD33 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C6B0D3482A81833A00961B47 /* XCTestCase+MemoryLeakTracking.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		C62877D52A77A829002F507E = {
 			isa = PBXGroup;
 			children = (
@@ -154,9 +162,9 @@
 		C6F89CB62A7D255A006C05CD /* Question API */ = {
 			isa = PBXGroup;
 			children = (
+				C61FFFAA2A84F0520015FD33 /* Helpers */,
 				C62877FE2A77C30B002F507E /* RemoteQuestionLoaderTests.swift */,
 				C6F89CB72A7E55DF006C05CD /* URLSessionHTTPClientTests.swift */,
-				C6B0D3482A81833A00961B47 /* XCTestCase+MemoryLeakTracking.swift */,
 			);
 			path = "Question API";
 			sourceTree = "<group>";
