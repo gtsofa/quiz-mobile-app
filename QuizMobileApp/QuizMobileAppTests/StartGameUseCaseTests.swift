@@ -22,7 +22,7 @@ class QuizGameEngine {
 final class StartGameUseCaseTests: XCTestCase {
 
     func test_init_doesNotRequestToStartCounter() {
-        let counter = CounterSpy(seconds: 1)
+        let (_, counter) = makeSUT()
         
         _ = QuizGameEngine(counter: counter)
         
@@ -30,8 +30,7 @@ final class StartGameUseCaseTests: XCTestCase {
     }
     
     func test_startGame_startsTheCounter() {
-        let counter = CounterSpy(seconds: 1)
-        let sut = QuizGameEngine(counter: counter)
+        let (sut, counter) = makeSUT()
         
         sut.startGame { }
         
@@ -39,8 +38,7 @@ final class StartGameUseCaseTests: XCTestCase {
     }
     
     func test_startGame_startsTimerWhenGameStarts() {
-        let counter = CounterSpy(seconds: 1)
-        let sut = QuizGameEngine(counter: counter)
+        let (sut, counter) = makeSUT()
         
         var counterStartMessage = 0
         sut.startGame {
@@ -50,6 +48,15 @@ final class StartGameUseCaseTests: XCTestCase {
         counter.startGameMessage()
         
         XCTAssertEqual(counterStartMessage, 1)
+    }
+    
+    // MARK: - Helpers
+    
+    private func makeSUT() -> (sut: QuizGameEngine, counter: CounterSpy) {
+        let counter = CounterSpy(seconds: 1)
+        let sut = QuizGameEngine(counter: counter)
+        
+        return (sut, counter)
     }
     
     class CounterSpy {
