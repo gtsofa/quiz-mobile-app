@@ -38,7 +38,9 @@ This is a Quiz app.  It's expected that the player will be able to:
 #### Primary course:
 1. Execute "Start" command
 2. System starts the counter.
-3. System enables the user to insert guesses.
+3. Counter delivers start message.
+4. Counter delivers current seconds.
+5. System enables the user to insert guesses.
 
 ### Add User Guess Use Case
 
