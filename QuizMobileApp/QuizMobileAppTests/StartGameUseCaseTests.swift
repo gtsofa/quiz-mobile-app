@@ -14,12 +14,12 @@ class QuizGameEngine {
         self.counter = counter
     }
     
-    enum QuizGameEngineResult {
+    enum Result: Equatable {
         case startGame
         case updateSecond(Int)
     }
     
-    func startGame(completion: @escaping (QuizGameEngineResult) -> Void) {
+    func startGame(completion: @escaping (Result) -> Void) {
         counter.start { counterRessult in
             switch counterRessult {
             case .start:
@@ -38,7 +38,7 @@ final class StartGameUseCaseTests: XCTestCase {
         
         _ = QuizGameEngine(counter: counter)
         
-        XCTAssertEqual(counter.startCounterCallCount, 0)
+        XCTAssertEqual(counter.messages.count, 0)
     }
     
     func test_startGame_startsTheCounter() {
@@ -46,91 +46,80 @@ final class StartGameUseCaseTests: XCTestCase {
         
         sut.startGame { _ in }
         
-        XCTAssertEqual(counter.startCounterCallCount, 1)
+        XCTAssertEqual(counter.messages, [.start, .currentSecond(1)])
     }
     
     func test_startGame_startsTimerWhenGameStarts() {
         let (sut, counter) = makeSUT()
         
-        var counterStartMessage = 0
+        var messages = [QuizGameEngine.Result]()
         sut.startGame { gameResult in
             switch gameResult {
             case .startGame:
-                counterStartMessage += 1
+                messages.append(.startGame)
             case .updateSecond:
-                XCTFail("Expected game start message, got \(gameResult) instead")
+                messages.append(.updateSecond(1))
             }
         }
         
         counter.startGameMessage()
         
-        XCTAssertEqual(counterStartMessage, 1)
+        XCTAssertEqual(messages, [.startGame])
     }
     
     func test_startGame_doesNotDeliverCounterStartMessageTwiceWhenSecondsGreaterThanOne() {
         let counter = CounterSpy(seconds: 2)
         let sut = QuizGameEngine(counter: counter)
         
-        var counterStartMessage = 0
+        var messages = [QuizGameEngine.Result]()
         sut.startGame { gameResult in
             switch gameResult {
             case .startGame:
-                counterStartMessage += 1
+                messages.append(.startGame)
             case .updateSecond:
-                XCTFail("Expected game start message, got \(gameResult) instead")
+                messages.append(.updateSecond(2))
             }
         }
         
         counter.startGameMessage()
         
-        XCTAssertEqual(counterStartMessage, 1)
+        XCTAssertEqual(messages, [.startGame])
     }
     
     func test_startGame_doesNotDeliverCounterStartMessageWithZeroSeconds() {
         let counter = CounterSpy(seconds: 0)
         let sut = QuizGameEngine(counter: counter)
         
-        var counterStartMessage = 0
+        var messages = [QuizGameEngine.Result]()
         sut.startGame { gameResult in
             switch gameResult {
             case .startGame:
-                counterStartMessage += 1
+                messages.append(.startGame)
             case .updateSecond:
-                XCTFail("Expected game start message, got \(gameResult) instead")
+                messages.append(.updateSecond(1))
             }
             
         }
         
         counter.startGameMessage()
-        XCTAssertEqual(counterStartMessage, 0)
+        XCTAssertEqual(messages, [])
     }
     
-    func test_startGame_deliversCounterCurrentSecondWhenSecondsIsGreaterThanZero() {
-        let counter = CounterSpy(seconds: 1)
-        let sut = QuizGameEngine(counter: counter)
+    func test_startGame_requestCounterCurrentSecondWhenSecondsIsGreaterThanZero() {
+        let (sut, counter) = makeSUT()
         
-        var currentSecondCounterResultCount = 0
-        sut.startGame { gameResult in
-            switch gameResult {
-            case .startGame:
-                XCTFail("Expected update second message, got \(gameResult) instead")
-            case .updateSecond:
-                currentSecondCounterResultCount += 1
-            }
-        }
+        sut.startGame { _ in }
         
-        counter.sendCurrentSecond()
-        
-        XCTAssertEqual(currentSecondCounterResultCount, 1)
+        XCTAssertEqual(counter.messages, [.start, .currentSecond(1)])
     }
     
-    func test_startGame_deliversCurrentCounterSecondTwiceWhenSecondIsEqualToTwo() {
+    func test_startGame_requestCurrentCounterSecondTwiceWhenSecondIsEqualToTwo() {
         let counter = CounterSpy(seconds: 2)
         let sut = QuizGameEngine(counter: counter)
         
         sut.startGame { _ in }
         
-        XCTAssertEqual(counter.startCounterCallCount, 2)
+        XCTAssertEqual(counter.messages, [.start, .currentSecond(2), .currentSecond(1)])
     }
     
     // MARK: - Helpers
@@ -143,11 +132,11 @@ final class StartGameUseCaseTests: XCTestCase {
     }
     
     class CounterSpy {
-        var startCounterCallCount = 0
         var seconds = 0
-        var messages = [(CounterResult) -> Void]()
+        var messages = [CounterResult]()
+        var startCompletions = [(CounterResult) -> Void]()
         
-        enum CounterResult {
+        enum CounterResult: Equatable {
             case start
             case currentSecond(Int)
         }
@@ -159,23 +148,24 @@ final class StartGameUseCaseTests: XCTestCase {
         
         func start(completion: @escaping (CounterResult) -> Void) {
             guard seconds > 0 else { return }
+            messages.append(.start)
             
             while seconds > 0 {
-                startCounterCallCount += 1
-                messages.append(completion)
+                startCompletions.append(completion)
+                messages.append(.currentSecond(seconds))
                 
                 seconds -= 1
             }
         }
         
         func startGameMessage(index: Int = 0) {
-            guard messages.count > 0 else { return }
-            messages[index](.start)
+            guard startCompletions.count > 0 else { return }
+            startCompletions[index](.start)
         }
         
         func sendCurrentSecond(index: Int = 0) {
-            guard messages.count > 0 else { return }
-            messages[index](.currentSecond(seconds))
+            guard startCompletions.count > 0 else { return }
+            startCompletions[index](.currentSecond(seconds))
         }
     }
 
