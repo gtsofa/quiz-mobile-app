@@ -8,33 +8,6 @@
 import XCTest
 import QuizMobileApp
 
-
-class QuizGameEngine {
-    private let counter: Counter
-    
-    init(counter: Counter) {
-        self.counter = counter
-    }
-    
-    enum Result: Equatable {
-        case startGame
-        case updateSecond(Int)
-    }
-    
-    func startGame(completion: @escaping (Result) -> Void) {
-        counter.start { [weak self] counterRessult in
-            guard self != nil else { return }
-            
-            switch counterRessult {
-            case .start:
-                completion(.startGame)
-            case let .currentSecond(second):
-                completion(.updateSecond(second))
-            }
-        }
-    }
-}
-
 final class StartGameUseCaseTests: XCTestCase {
 
     func test_init_doesNotRequestToStartCounter() {
