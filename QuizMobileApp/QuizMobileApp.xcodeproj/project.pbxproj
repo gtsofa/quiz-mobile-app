@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6084BD22A8798BD0031148B /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6084BD12A8798BD0031148B /* Counter.swift */; };
 		C60EE0072A7854F100A97747 /* RemoteQuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60EE0062A7854F100A97747 /* RemoteQuestionLoader.swift */; };
 		C619F0D02A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C619F0CF2A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.swift */; };
 		C619F0D12A83B23A00179938 /* QuizMobileApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62877DF2A77A829002F507E /* QuizMobileApp.framework */; };
@@ -41,6 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C6084BD12A8798BD0031148B /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		C60EE0062A7854F100A97747 /* RemoteQuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteQuestionLoader.swift; sourceTree = "<group>"; };
 		C619F0CD2A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizMobileAppAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C619F0CF2A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMobileAppAPIEndToEndTests.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				C60EE0052A7854BE00A97747 /* Question API */,
 				C62877FB2A77C0AE002F507E /* Quiz Feature */,
+				C6084BD12A8798BD0031148B /* Counter.swift */,
 			);
 			path = QuizMobileApp;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				C6F89CB32A7D0628006C05CD /* HTTPClient.swift in Sources */,
 				C62877F82A77BE4C002F507E /* QuestionItem.swift in Sources */,
 				C6B0D34B2A82491C00961B47 /* URLSessionHTTPClient.swift in Sources */,
+				C6084BD22A8798BD0031148B /* Counter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,11 +6,13 @@
 //
 
 import XCTest
+import QuizMobileApp
+
 
 class QuizGameEngine {
-    private let counter: StartGameUseCaseTests.CounterSpy
+    private let counter: Counter
     
-    init(counter: StartGameUseCaseTests.CounterSpy) {
+    init(counter: Counter) {
         self.counter = counter
     }
     
@@ -149,15 +151,10 @@ final class StartGameUseCaseTests: XCTestCase {
         return (sut, counter)
     }
     
-    class CounterSpy {
+    class CounterSpy: Counter {
         var seconds = 0
         var messages = [CounterResult]()
         var startCompletions = [(CounterResult) -> Void]()
-        
-        enum CounterResult: Equatable {
-            case start
-            case currentSecond(Int)
-        }
         
         
         init(seconds: Int) {
