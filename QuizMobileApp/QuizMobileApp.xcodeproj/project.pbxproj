@@ -99,6 +99,14 @@
 			path = "Quiz Engine";
 			sourceTree = "<group>";
 		};
+		C6084BD62A879B6E0031148B /* Game Engine */ = {
+			isa = PBXGroup;
+			children = (
+				C61FFFAB2A8535B30015FD33 /* StartGameUseCaseTests.swift */,
+			);
+			path = "Game Engine";
+			sourceTree = "<group>";
+		};
 		C60EE0052A7854BE00A97747 /* Question API */ = {
 			isa = PBXGroup;
 			children = (
@@ -161,8 +169,8 @@
 		C62877EB2A77A82A002F507E /* QuizMobileAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				C6084BD62A879B6E0031148B /* Game Engine */,
 				C6F89CB62A7D255A006C05CD /* Question API */,
-				C61FFFAB2A8535B30015FD33 /* StartGameUseCaseTests.swift */,
 			);
 			path = QuizMobileAppTests;
 			sourceTree = "<group>";
