@@ -20,7 +20,9 @@ class QuizGameEngine {
     }
     
     func startGame(completion: @escaping (Result) -> Void) {
-        counter.start { counterRessult in
+        counter.start { [weak self] counterRessult in
+            guard self != nil else { return }
+            
             switch counterRessult {
             case .start:
                 completion(.startGame)
@@ -120,6 +122,20 @@ final class StartGameUseCaseTests: XCTestCase {
         sut.startGame { _ in }
         
         XCTAssertEqual(counter.messages, [.start, .currentSecond(2), .currentSecond(1)])
+    }
+    
+    func test_startGame_doesNotDeliverResultAfterInstanceHasBeenDeallocated() {
+        let counter = CounterSpy(seconds: 1)
+        var sut: QuizGameEngine? = QuizGameEngine(counter: counter)
+        
+        var capturedResult = [QuizGameEngine.Result]()
+        sut?.startGame { capturedResult.append($0)}
+        
+        sut = nil
+        
+        counter.startGameMessage()
+        
+        XCTAssertTrue(capturedResult.isEmpty)
     }
     
     // MARK: - Helpers
