@@ -90,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6084BD52A879AC60031148B /* Quiz Engine */ = {
+			isa = PBXGroup;
+			children = (
+				C6084BD12A8798BD0031148B /* Counter.swift */,
+				C6084BD32A879A290031148B /* QuizGameEngine.swift */,
+			);
+			path = "Quiz Engine";
+			sourceTree = "<group>";
+		};
 		C60EE0052A7854BE00A97747 /* Question API */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,8 +153,7 @@
 			children = (
 				C60EE0052A7854BE00A97747 /* Question API */,
 				C62877FB2A77C0AE002F507E /* Quiz Feature */,
-				C6084BD12A8798BD0031148B /* Counter.swift */,
-				C6084BD32A879A290031148B /* QuizGameEngine.swift */,
+				C6084BD52A879AC60031148B /* Quiz Engine */,
 			);
 			path = QuizMobileApp;
 			sourceTree = "<group>";
