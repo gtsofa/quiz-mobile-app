@@ -124,6 +124,15 @@ final class StartGameUseCaseTests: XCTestCase {
         XCTAssertEqual(currentSecondCounterResultCount, 1)
     }
     
+    func test_startGame_deliversCurrentCounterSecondTwiceWhenSecondIsEqualToTwo() {
+        let counter = CounterSpy(seconds: 2)
+        let sut = QuizGameEngine(counter: counter)
+        
+        sut.startGame { _ in }
+        
+        XCTAssertEqual(counter.startCounterCallCount, 2)
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT() -> (sut: QuizGameEngine, counter: CounterSpy) {
@@ -149,9 +158,13 @@ final class StartGameUseCaseTests: XCTestCase {
         }
         
         func start(completion: @escaping (CounterResult) -> Void) {
-            if seconds > 0 {
+            guard seconds > 0 else { return }
+            
+            while seconds > 0 {
                 startCounterCallCount += 1
                 messages.append(completion)
+                
+                seconds -= 1
             }
         }
         
