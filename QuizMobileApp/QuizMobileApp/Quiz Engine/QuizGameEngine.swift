@@ -11,6 +11,7 @@ public class QuizGameEngine {
     private let counter: Counter
     private var savedAnswers = [String]()
     private var correctAnswers = [String]()
+    public typealias AnswerResult = (savedAnswers: [String], correctAnswers: Int)
     
     public init(counter: Counter, correctAnswers: [String]) {
         self.counter = counter
@@ -35,13 +36,13 @@ public class QuizGameEngine {
         }
     }
     
-    public func add(_ answer: String, completion: @escaping ([String]) -> Void) {
+    public func add(_ answer: String, completion: @escaping (AnswerResult) -> Void) {
         guard !answer.isEmpty else { return }
         
         let trimmedAnswer = answer.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedAnswer.isEmpty else { return }
         savedAnswers.append(trimmedAnswer)
         
-        completion(savedAnswers)
+        completion((savedAnswers, correctAnswers.count))
     }
 }
