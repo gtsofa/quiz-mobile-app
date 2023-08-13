@@ -10,9 +10,11 @@ import Foundation
 public class QuizGameEngine {
     private let counter: Counter
     private var savedAnswers = [String]()
+    private var correctAnswers = [String]()
     
-    public init(counter: Counter) {
+    public init(counter: Counter, correctAnswers: [String]) {
         self.counter = counter
+        self.correctAnswers = correctAnswers
     }
     
     public enum Result: Equatable {
