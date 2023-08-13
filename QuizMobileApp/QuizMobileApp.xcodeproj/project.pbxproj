@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C6084BD22A8798BD0031148B /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6084BD12A8798BD0031148B /* Counter.swift */; };
 		C6084BD42A879A290031148B /* QuizGameEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6084BD32A879A290031148B /* QuizGameEngine.swift */; };
+		C6084BD82A87AA8D0031148B /* AddAnswerUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6084BD72A87AA8D0031148B /* AddAnswerUseCaseTests.swift */; };
 		C60EE0072A7854F100A97747 /* RemoteQuestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = C60EE0062A7854F100A97747 /* RemoteQuestionLoader.swift */; };
 		C619F0D02A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C619F0CF2A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.swift */; };
 		C619F0D12A83B23A00179938 /* QuizMobileApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C62877DF2A77A829002F507E /* QuizMobileApp.framework */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		C6084BD12A8798BD0031148B /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		C6084BD32A879A290031148B /* QuizGameEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizGameEngine.swift; sourceTree = "<group>"; };
+		C6084BD72A87AA8D0031148B /* AddAnswerUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAnswerUseCaseTests.swift; sourceTree = "<group>"; };
 		C60EE0062A7854F100A97747 /* RemoteQuestionLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteQuestionLoader.swift; sourceTree = "<group>"; };
 		C619F0CD2A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizMobileAppAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C619F0CF2A83B23A00179938 /* QuizMobileAppAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizMobileAppAPIEndToEndTests.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				C61FFFAB2A8535B30015FD33 /* StartGameUseCaseTests.swift */,
+				C6084BD72A87AA8D0031148B /* AddAnswerUseCaseTests.swift */,
 			);
 			path = "Game Engine";
 			sourceTree = "<group>";
@@ -359,6 +362,7 @@
 			files = (
 				C62877FF2A77C30B002F507E /* LoadQuestionFromRemoteUseCaseTests.swift in Sources */,
 				C6F89CB82A7E55DF006C05CD /* URLSessionHTTPClientTests.swift in Sources */,
+				C6084BD82A87AA8D0031148B /* AddAnswerUseCaseTests.swift in Sources */,
 				C61FFFAC2A8535B30015FD33 /* StartGameUseCaseTests.swift in Sources */,
 				C6B0D3492A81833B00961B47 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
