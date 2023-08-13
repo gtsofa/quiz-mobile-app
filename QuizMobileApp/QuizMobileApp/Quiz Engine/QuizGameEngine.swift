@@ -9,6 +9,7 @@ import Foundation
 
 public class QuizGameEngine {
     private let counter: Counter
+    private var savedAnswers = [String]()
     
     public init(counter: Counter) {
         self.counter = counter
@@ -33,6 +34,7 @@ public class QuizGameEngine {
     }
     
     public func add(_ answer: String, completion: @escaping ([String]) -> Void) {
-        completion([answer])
+        savedAnswers.append(answer)
+        completion(savedAnswers)
     }
 }

@@ -22,7 +22,19 @@ final class AddAnswerUseCaseTests: XCTestCase {
         sut.add("answer1") { answer in
             savedAnswer = answer
         }
+        
         XCTAssertEqual(savedAnswer, ["answer1"])
+    }
+    
+    func test_addTwice_addsTheTwoAddedAnswersOnSuccessfullySave() {
+        let (sut, _) = makeSUT()
+        
+        var savedAnswers = [String]()
+        sut.add("answer1") { savedAnswers = $0 }
+        
+        sut.add("answer2") { savedAnswers = $0 }
+        
+        XCTAssertEqual(savedAnswers, ["answer1", "answer2"])
     }
     
     // MARK:- Helpers
