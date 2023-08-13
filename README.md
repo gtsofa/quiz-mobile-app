@@ -51,6 +51,11 @@ This is a Quiz app.  It's expected that the player will be able to:
 1. Execute "Add guess" command with the above data.
 2. System validates the user guess
 3. System saves the user guess.
+4. System delivers all answers count from previous answers.
+5. System delivers all answers already saved
+
+#### Invalid data course (sad path):
+1. System doesn't save empty guess (answer)
 
 ### Finish Game Use Case
 
