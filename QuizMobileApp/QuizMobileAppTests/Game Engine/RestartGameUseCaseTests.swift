@@ -23,7 +23,7 @@ final class RestartGameUseCaseTests: XCTestCase {
         
         sut.restartGame {  }
         sut.add("answer2") { savedAnswers = $0.savedAnswers}
-        XCTAssertEqual(savedAnswers, ["answer"])
+        XCTAssertEqual(savedAnswers, ["answer2"])
     }
     
     // MARK: - Helpers
