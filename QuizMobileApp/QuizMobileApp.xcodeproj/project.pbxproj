@@ -22,6 +22,7 @@
 		C6B0D3492A81833B00961B47 /* XCTestCase+MemoryLeakTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B0D3482A81833A00961B47 /* XCTestCase+MemoryLeakTracking.swift */; };
 		C6B0D34B2A82491C00961B47 /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B0D34A2A82491C00961B47 /* URLSessionHTTPClient.swift */; };
 		C6C6E4372A8A4FD3008D7FC6 /* RestartGameUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C6E4362A8A4FD3008D7FC6 /* RestartGameUseCaseTests.swift */; };
+		C6C6E43A2A8A5802008D7FC6 /* CounterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6C6E4392A8A5802008D7FC6 /* CounterSpy.swift */; };
 		C6F89CB32A7D0628006C05CD /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F89CB22A7D0628006C05CD /* HTTPClient.swift */; };
 		C6F89CB52A7D0698006C05CD /* QuestionItemMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F89CB42A7D0698006C05CD /* QuestionItemMapper.swift */; };
 		C6F89CB82A7E55DF006C05CD /* URLSessionHTTPClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6F89CB72A7E55DF006C05CD /* URLSessionHTTPClientTests.swift */; };
@@ -62,6 +63,7 @@
 		C6B0D3482A81833A00961B47 /* XCTestCase+MemoryLeakTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+MemoryLeakTracking.swift"; sourceTree = "<group>"; };
 		C6B0D34A2A82491C00961B47 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		C6C6E4362A8A4FD3008D7FC6 /* RestartGameUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestartGameUseCaseTests.swift; sourceTree = "<group>"; };
+		C6C6E4392A8A5802008D7FC6 /* CounterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterSpy.swift; sourceTree = "<group>"; };
 		C6F89CB22A7D0628006C05CD /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		C6F89CB42A7D0698006C05CD /* QuestionItemMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionItemMapper.swift; sourceTree = "<group>"; };
 		C6F89CB72A7E55DF006C05CD /* URLSessionHTTPClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClientTests.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		C6084BD62A879B6E0031148B /* Game Engine */ = {
 			isa = PBXGroup;
 			children = (
+				C6C6E4382A8A57E7008D7FC6 /* Helpers */,
 				C61FFFAB2A8535B30015FD33 /* StartGameUseCaseTests.swift */,
 				C6084BD72A87AA8D0031148B /* AddAnswerUseCaseTests.swift */,
 				C6C6E4362A8A4FD3008D7FC6 /* RestartGameUseCaseTests.swift */,
@@ -188,6 +191,14 @@
 				C62877F72A77BE4C002F507E /* QuestionItem.swift */,
 			);
 			path = "Quiz Feature";
+			sourceTree = "<group>";
+		};
+		C6C6E4382A8A57E7008D7FC6 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C6C6E4392A8A5802008D7FC6 /* CounterSpy.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		C6F89CB62A7D255A006C05CD /* Question API */ = {
@@ -368,6 +379,7 @@
 				C6084BD82A87AA8D0031148B /* AddAnswerUseCaseTests.swift in Sources */,
 				C6C6E4372A8A4FD3008D7FC6 /* RestartGameUseCaseTests.swift in Sources */,
 				C61FFFAC2A8535B30015FD33 /* StartGameUseCaseTests.swift in Sources */,
+				C6C6E43A2A8A5802008D7FC6 /* CounterSpy.swift in Sources */,
 				C6B0D3492A81833B00961B47 /* XCTestCase+MemoryLeakTracking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
