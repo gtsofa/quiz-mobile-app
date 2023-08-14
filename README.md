@@ -42,6 +42,15 @@ This is a Quiz app.  It's expected that the player will be able to:
 4. Counter delivers current seconds.
 5. System enables the user to insert guesses.
 
+#### Restart Game Use Case
+
+#### Primary course:
+1. Execute "Restart Game" command.
+2. System deletes old answers.
+3. System stops the counter.
+4. System resets the counter.
+5. System delivers reset message
+
 ### Add Answer Use Case
 
 #### Data:
