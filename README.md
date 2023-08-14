@@ -42,7 +42,7 @@ This is a Quiz app.  It's expected that the player will be able to:
 4. Counter delivers current seconds.
 5. System enables the user to insert guesses.
 
-### Add User Guess Use Case
+### Add Answer Use Case
 
 #### Data:
 - String
