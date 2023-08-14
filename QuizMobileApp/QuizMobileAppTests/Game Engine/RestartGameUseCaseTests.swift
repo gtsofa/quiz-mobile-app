@@ -15,6 +15,17 @@ final class RestartGameUseCaseTests: XCTestCase {
         XCTAssertEqual(counter.messages.count, 0)
     }
     
+    func test_restartGame_deletesSavedAnswer() {
+        let (sut, _) = makeSUT()
+        var savedAnswers = [String]()
+        sut.add("answer") { savedAnswers = $0.savedAnswers}
+        sut.add("answer1") { savedAnswers = $0.savedAnswers}
+        
+        sut.restartGame {  }
+        sut.add("answer2") { savedAnswers = $0.savedAnswers}
+        XCTAssertEqual(savedAnswers, ["answer"])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: QuizGameEngine, counter: CounterSpy) {

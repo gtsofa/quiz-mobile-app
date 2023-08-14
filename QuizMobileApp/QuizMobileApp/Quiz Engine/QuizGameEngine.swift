@@ -36,6 +36,10 @@ public class QuizGameEngine {
         }
     }
     
+    public func restartGame(completion: @escaping () -> Void) {
+        savedAnswers = []
+    }
+    
     public func add(_ answer: String, completion: @escaping (AnswerResult) -> Void) {
         guard !answer.isEmpty else { return }
         
