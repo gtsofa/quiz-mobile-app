@@ -10,8 +10,10 @@ import Foundation
 public enum CounterResult: Equatable {
     case start
     case currentSecond(Int)
+    case reset
 }
 
 public protocol Counter {
     func start(completion: @escaping (CounterResult) -> Void)
+    func reset()
 }

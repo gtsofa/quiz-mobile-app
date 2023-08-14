@@ -32,11 +32,14 @@ public class QuizGameEngine {
                 completion(.startGame)
             case let .currentSecond(second):
                 completion(.updateSecond(second))
+            case .reset:
+                break
             }
         }
     }
     
     public func restartGame(completion: @escaping () -> Void) {
+        counter.reset()
         savedAnswers = []
     }
     

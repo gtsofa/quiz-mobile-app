@@ -157,4 +157,8 @@ class CounterSpy: Counter {
         guard startCompletions.count > 0 else { return }
         startCompletions[index](.currentSecond(seconds))
     }
+    
+    func reset() {
+        messages.append(.reset)
+    }
 }
