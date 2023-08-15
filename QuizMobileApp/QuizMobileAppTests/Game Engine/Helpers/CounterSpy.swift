@@ -11,9 +11,7 @@ import QuizMobileApp
 class CounterSpy: Counter {
     var seconds = 0
     var messages = [CounterResult]()
-    var startCompletions = [(CounterResult) -> Void]()
-    var stopCompletions: ((CounterResult) -> Void)?
-    
+    var completions: ((CounterResult) -> Void)?
     
     init(seconds: Int) {
         self.seconds = seconds
@@ -22,31 +20,32 @@ class CounterSpy: Counter {
     func start(completion: @escaping (CounterResult) -> Void) {
         guard seconds > 0 else { return }
         messages.append(.start)
-        stopCompletions = completion
+        completions = completion
         
         while seconds > 0 {
-            startCompletions.append(completion)
             messages.append(.currentSecond(seconds))
             
             seconds -= 1
         }
     }
     
+    public func stop() {
+        completions?(.stop)
+    }
+    
     func startGameMessage(index: Int = 0) {
-        guard startCompletions.count > 0 else { return }
-        startCompletions[index](.start)
+        completions?(.start)
     }
     
     func sendCurrentSecond(index: Int = 0) {
-        guard startCompletions.count > 0 else { return }
-        startCompletions[index](.currentSecond(seconds))
+        completions?(.currentSecond(seconds))
     }
     
     func reset() {
         messages.append(.reset)
     }
     
-    func stop() {
-        stopCompletions?(.stop)
+    func sendStopMessage() {
+        completions?(.stop)
     }
 }
