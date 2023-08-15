@@ -30,14 +30,7 @@ final class StartGameUseCaseTests: XCTestCase {
         let (sut, counter) = makeSUT()
         
         var messages = [QuizGameEngine.Result]()
-        sut.startGame { gameResult in
-            switch gameResult {
-            case .startGame:
-                messages.append(.startGame)
-            case .updateSecond:
-                messages.append(.updateSecond(1))
-            }
-        }
+        sut.startGame { messages.append($0)}
         
         counter.startGameMessage()
         
@@ -49,14 +42,7 @@ final class StartGameUseCaseTests: XCTestCase {
         let sut = QuizGameEngine(counter: counter, correctAnswers: ["answer", "answer1"])
         
         var messages = [QuizGameEngine.Result]()
-        sut.startGame { gameResult in
-            switch gameResult {
-            case .startGame:
-                messages.append(.startGame)
-            case .updateSecond:
-                messages.append(.updateSecond(2))
-            }
-        }
+        sut.startGame { messages.append($0)}
         
         counter.startGameMessage()
         
@@ -68,15 +54,7 @@ final class StartGameUseCaseTests: XCTestCase {
         let sut = QuizGameEngine(counter: counter, correctAnswers: [])
         
         var messages = [QuizGameEngine.Result]()
-        sut.startGame { gameResult in
-            switch gameResult {
-            case .startGame:
-                messages.append(.startGame)
-            case .updateSecond:
-                messages.append(.updateSecond(1))
-            }
-            
-        }
+        sut.startGame { messages.append($0)}
         
         counter.startGameMessage()
         XCTAssertEqual(messages, [])
@@ -86,14 +64,7 @@ final class StartGameUseCaseTests: XCTestCase {
         let (sut, counter) = makeSUT()
         
         var messages = [QuizGameEngine.Result]()
-        sut.startGame { gameResult in
-            switch gameResult {
-            case .startGame:
-                messages.append(.startGame)
-            case .updateSecond:
-                messages.append(.updateSecond(1))
-            }
-        }
+        sut.startGame { messages.append($0)}
         
         counter.startGameMessage()
     }
