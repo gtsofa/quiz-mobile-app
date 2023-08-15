@@ -47,6 +47,14 @@ final class RestartGameUseCaseTests: XCTestCase {
         XCTAssertEqual(receivedMessage, expectedMessage)
     }
     
+    func test_startGame_doesNotRequestToStartTheGameWithEmptyCorrectAnswers() {
+        let counter = CounterSpy(seconds: 1)
+        let sut = QuizGameEngine(counter: counter, correctAnswers: [])
+        
+        sut.startGame { _ in }
+        XCTAssertEqual(counter.messages, [])
+    }
+    
     // MARK: - Helpers
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: QuizGameEngine, counter: CounterSpy) {

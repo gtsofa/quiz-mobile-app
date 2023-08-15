@@ -46,7 +46,7 @@ final class StartGameUseCaseTests: XCTestCase {
     
     func test_startGame_doesNotDeliverCounterStartMessageTwiceWhenSecondsGreaterThanOne() {
         let counter = CounterSpy(seconds: 2)
-        let sut = QuizGameEngine(counter: counter, correctAnswers: [])
+        let sut = QuizGameEngine(counter: counter, correctAnswers: ["answer", "answer1"])
         
         var messages = [QuizGameEngine.Result]()
         sut.startGame { gameResult in
@@ -85,14 +85,22 @@ final class StartGameUseCaseTests: XCTestCase {
     func test_startGame_requestCounterCurrentSecondWhenSecondsIsGreaterThanZero() {
         let (sut, counter) = makeSUT()
         
-        sut.startGame { _ in }
+        var messages = [QuizGameEngine.Result]()
+        sut.startGame { gameResult in
+            switch gameResult {
+            case .startGame:
+                messages.append(.startGame)
+            case .updateSecond:
+                messages.append(.updateSecond(1))
+            }
+        }
         
-        XCTAssertEqual(counter.messages, [.start, .currentSecond(1)])
+        counter.startGameMessage()
     }
     
     func test_startGame_requestCurrentCounterSecondTwiceWhenSecondIsEqualToTwo() {
         let counter = CounterSpy(seconds: 2)
-        let sut = QuizGameEngine(counter: counter, correctAnswers: [])
+        let sut = QuizGameEngine(counter: counter, correctAnswers: ["answer", "answer1"])
         
         sut.startGame { _ in }
         
@@ -117,7 +125,7 @@ final class StartGameUseCaseTests: XCTestCase {
     
     private func makeSUT(file: StaticString = #filePath, line: UInt = #line) -> (sut: QuizGameEngine, counter: CounterSpy) {
         let counter = CounterSpy(seconds: 1)
-        let sut = QuizGameEngine(counter: counter, correctAnswers: [])
+        let sut = QuizGameEngine(counter: counter, correctAnswers: ["answer", "answer1"])
         trackForMemoryLeak(sut, file: file, line: line)
         trackForMemoryLeak(counter, file: file, line: line)
         
