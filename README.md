@@ -66,6 +66,14 @@ This is a Quiz app.  It's expected that the player will be able to:
 #### Invalid data course (sad path):
 1. System doesn't save empty guess (answer)
 
+### Validate Answers Use Case
+
+#### Primary course:
+1. Execute "Validate Answers" command with the above data.
+2. System valides if all saved answers is equal to the total correct answers that came from server.
+3. System stop the counter.
+4. System delivers success message.
+
 ### Finish Game Use Case
 
 #### Primary course:
