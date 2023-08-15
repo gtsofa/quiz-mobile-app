@@ -38,9 +38,10 @@ public class QuizGameEngine {
         }
     }
     
-    public func restartGame(completion: @escaping () -> Void) {
+    public func restartGame(completion: @escaping ([String: Int]) -> Void) {
         counter.reset()
         savedAnswers = []
+        completion(["correct_answers_count": correctAnswers.count])
     }
     
     public func add(_ answer: String, completion: @escaping (AnswerResult) -> Void) {
