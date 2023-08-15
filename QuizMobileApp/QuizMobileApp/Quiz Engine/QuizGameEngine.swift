@@ -21,6 +21,7 @@ public class QuizGameEngine {
     public enum Result: Equatable {
         case startGame
         case updateSecond(Int)
+        case gameFinished
     }
     
     public func startGame(completion: @escaping (Result) -> Void) {
@@ -35,6 +36,8 @@ public class QuizGameEngine {
                 completion(.updateSecond(second))
             case .reset:
                 break
+            case .stop:
+                completion(.gameFinished)
             }
         }
     }
@@ -51,7 +54,14 @@ public class QuizGameEngine {
         let trimmedAnswer = answer.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmedAnswer.isEmpty else { return }
         savedAnswers.append(trimmedAnswer)
+        validateAnswers()
         
         completion((savedAnswers, correctAnswers.count))
+    }
+    
+    private func validateAnswers() {
+        if savedAnswers.count == correctAnswers.count {
+            counter.stop()
+        }
     }
 }
